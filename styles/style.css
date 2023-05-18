@@ -55,11 +55,12 @@
 }
 .wrapper .bust1, .wrapper .bust2 {
 	top: 310px;
-	left: 90px;
-	width: 715px;
-	height: 371px;
+	left: 190px;
+	width: 681px;
+	height: 333px;
 	background-image: url("https://ewu1209.github.io/scoreboard/images/bust.png");
+	display: none;
 }
 .wrapper .bust2 {
-	left: 1180px;
+	left: 1270px;
 }
