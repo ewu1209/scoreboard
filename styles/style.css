@@ -1,0 +1,44 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Libre Baskerville', serif;
+	font-size: 600px;
+	font-weight: bold;
+	position: absolute;
+}
+.wrapper {
+	background-image: url("https://ewu1209.github.io/scoreboard/images/background.jpg");
+	width: 2160px;
+	height: 1620px;
+}
+.wrapper .restart {
+	width: 2160px; 
+	text-align: center;
+	font-size: 150px;
+	color: #dddddd;
+	top: 130px;
+	height: 400px;
+}
+.wrapper .score1 {
+	width: 1080px;
+	text-align: center;
+	color: black;
+	top: 450px;
+	left: 0px;
+	text-shadow: 2px 2px #dddddd;
+}
+.wrapper .score2 {
+	width: 1080px;
+	text-align: center;
+	color: black;
+	top: 450px;
+	left: 1080px;
+	text-shadow: 2px 2px #dddddd;
+}
+.wrapper .rules {
+	width: 2160px; 
+	text-align: center;
+	font-size: 60px;
+	bottom: 120px;
+	color: #dddddd;
+}
