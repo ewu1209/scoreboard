@@ -53,3 +53,13 @@
 .wrapper .score2winner {
 	left: 1180px;
 }
+.wrapper .bust1, .wrapper .bust2 {
+	top: 310px;
+	left: 90px;
+	width: 715px;
+	height: 371px;
+	background-image: url("https://ewu1209.github.io/scoreboard/images/bust.png");
+}
+.wrapper .bust2 {
+	left: 1180px;
+}
