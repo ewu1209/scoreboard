@@ -42,7 +42,14 @@
 	bottom: 120px;
 	color: #dddddd;
 }
-.wrapper .score1winner div, .wrapper .score2winner div  {
-	font-size: 100px;
-	top: 500px;
+.wrapper .score1winner, .wrapper .score2winner {
+	top: 310px;
+	left: 90px;
+	width: 892px;
+	height: 449px;
+	background-image: url("https://ewu1209.github.io/scoreboard/images/winner.png");
+	display: none;
+}
+.wrapper .score2winner {
+	left: 1180px;
 }
