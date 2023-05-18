@@ -42,3 +42,7 @@
 	bottom: 120px;
 	color: #dddddd;
 }
+.wrapper .score1winner div, .wrapper .score2winner div  {
+	font-size: 100px;
+	top: 500px;
+}
