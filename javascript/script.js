@@ -67,7 +67,7 @@ function updateScore() {
 
 		// Govee logic
     	if (delta1 > 4 || delta2 > 4) {
-    		alert("redflash");
+    		console.log("redflash");
 			//goveeAPI("red", response.key);
     	};
 
@@ -102,10 +102,11 @@ function updateScore() {
 };
 
 function resetGame() {
-	console.log("hi");
+  	$("#score1").html("0");
+  	$("#score2").html("0");
 	$(".reset").html("Loading...");
-	$(".score1winner").hide();
-	$(".score2winner").hide();
+	$("#score1winner").hide();
+	$("#score2winner").hide();
 	$.ajax({
 	    url: "/reset",
 	    type: 'GET',
