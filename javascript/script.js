@@ -100,4 +100,16 @@ function updateScore() {
   xhr.open('GET', '/data', true);
   xhr.send();
 };
-var refreshIntervalId = setInterval(updateScore, 1000);
+$(document).ready(function() {
+	var refreshIntervalId = setInterval(updateScore, 1000);
+	$('.reset').click(function(){
+		$.ajax({
+		    url: "/reset",
+		    type: 'GET',
+		    success: function(res) {
+		        console.log(res);
+		    }
+		});
+	});
+
+});
