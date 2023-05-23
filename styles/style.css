@@ -2,65 +2,68 @@
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Libre Baskerville', serif;
-	font-size: 600px;
+	font-size: 150;
 	font-weight: bold;
 	position: absolute;
 }
 .wrapper {
 	background-image: url("https://ewu1209.github.io/scoreboard/images/background.jpg");
-	width: 2160px;
-	height: 1620px;
+	background-size: 1080px 810px;
+	width: 1080px;
+	height: 810px;
 }
 .wrapper .reset {
-	width: 2160px; 
+	width: 1080px; 
 	text-align: center;
-	font-size: 150px;
+	font-size: 75px;
 	color: #dddddd;
-	top: 130px;
-	height: 400px;
+	top: 65px;
+	height: 200px;
 }
 .wrapper .score1 {
-	width: 1080px;
+	width: 540px;
 	text-align: center;
 	color: black;
-	top: 450px;
+	top: 225px;
 	left: 0px;
 	text-shadow: 2px 2px #dddddd;
 }
 .wrapper .score2 {
-	width: 1080px;
+	width: 540px;
 	text-align: center;
 	color: black;
-	top: 450px;
-	left: 1080px;
+	top: 225px;
+	left: 540px;
 	text-shadow: 2px 2px #dddddd;
 }
 .wrapper .rules {
-	width: 2160px; 
+	width: 1080px; 
 	text-align: center;
-	font-size: 60px;
-	bottom: 120px;
+	font-size: 30px;
+	bottom: 60px;
 	color: #dddddd;
 }
 .wrapper .score1winner, .wrapper .score2winner {
-	top: 310px;
-	left: 90px;
-	width: 892px;
-	height: 449px;
+	top: 155px;
+	left: 45px;
+	width: 446px;
+	height: 225px;
 	background-image: url("https://ewu1209.github.io/scoreboard/images/winner.png");
+	background-size: 446px 225px;
 	display: none;
 }
 .wrapper .score2winner {
-	left: 1180px;
+	left: 590px;
 }
 .wrapper .bust1, .wrapper .bust2 {
-	top: 310px;
-	left: 190px;
-	width: 681px;
-	height: 333px;
+	top: 155px;
+	left: 95px;
+	width: 340px;
+	height: 166px;
 	background-image: url("https://ewu1209.github.io/scoreboard/images/bust.png");
+	background-size: 340px 166px;
 	display: none;
 }
 .wrapper .bust2 {
-	left: 1270px;
+	left: 635px;
 }
