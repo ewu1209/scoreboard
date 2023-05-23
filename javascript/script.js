@@ -76,7 +76,7 @@ $(document).ready(function() {
 
 	    	if (delta1 > 4 || delta2 > 4) {
 	    		alert("redflash");
-				goveeAPI("red", response.key);
+				//goveeAPI("red", response.key);
 	    	};
 
 	    	// update doc elements
@@ -123,6 +123,8 @@ $(document).ready(function() {
 		        console.log(res);
 		        updateScore();
 		        $(".reset").html("[RESTART GAME]");
+				$(".score1winner").hide();
+				$(".score2winner").hide();
 		    }
 		});
 	});
