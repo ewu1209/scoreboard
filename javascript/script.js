@@ -49,7 +49,7 @@ function goveeAPI(color, key) {
 	    console.log("Request failed:", error);
 	  }
 	});
-	if (color <> "white") {
+	if (color !== "white") {
 		setTimeout(function(){
 			goveeAPI("white", key);
 	    }, 1000);
