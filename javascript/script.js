@@ -113,7 +113,7 @@ $(document).ready(function() {
 	  xhr.send();
 	};
 
-	var refreshIntervalId = setInterval(updateScore, 1000);
+	var refreshIntervalId = setInterval(updateScore, 500);
 	$(".reset").click(function(){
 		$(".reset").html("Loading...");
 		$.ajax({
