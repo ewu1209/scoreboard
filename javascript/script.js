@@ -102,6 +102,7 @@ function updateScore() {
 };
 
 function resetGame() {
+	console.log("hi");
 	$(".reset").html("Loading...");
 	$(".score1winner").hide();
 	$(".score2winner").hide();
@@ -122,6 +123,6 @@ $(document).ready(function() {
 	setInterval(updateScore, 500);
 
 	//Reset game event listener
-	$(".reset").click(resetGame());
+	$(".reset").click(function(){resetGame();});
 
 });
