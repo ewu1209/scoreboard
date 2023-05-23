@@ -62,8 +62,8 @@ function updateScore() {
     	var response = JSON.parse(xhr.responseText);
 
     	// See what changed
-    	var delta1 = response.score1 - document.getElementById('score1').textContent;
-    	var delta2 = response.score2 - document.getElementById('score2').textContent;
+    	var delta1 = response.score1 - $("#score1").html();
+    	var delta2 = response.score2 - $("#score2").html();
 
 		// Govee logic
     	if (delta1 > 4 || delta2 > 4) {
