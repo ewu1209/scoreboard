@@ -65,40 +65,33 @@ function updateScore() {
     	var delta1 = response.score1 - document.getElementById('score1').textContent;
     	var delta2 = response.score2 - document.getElementById('score2').textContent;
 
-    	console.log("delta1");
-    	console.log(delta1);
-
-    	console.log("delta2");
-    	console.log(delta2);
-
+		// Govee logic
     	if (delta1 > 4 || delta2 > 4) {
     		alert("redflash");
 			//goveeAPI("red", response.key);
     	};
 
     	// update doc elements
-      	document.getElementById('score1').textContent = response.score1;
-      	document.getElementById('score2').textContent = response.score2;
+      	$("#score1").html(response.score1);
+      	$("#score2").html(response.score2);
 
       	//show winners or busts if needed
 		if (response.score1 == 21) {
-			document.getElementById('score1winner').style.display = "block";
+			$("#score1winner").show();
 		};
 		if (response.score2 == 21) {
-			document.getElementById('score2winner').style.display = "block";
+			$("#score2winner").show();
 		};
 		if (response.score1 > 21) {
-			document.getElementById('bust1').style.display = "block";
-			document.getElementById('score1').textContent = score1;
+			$("#bust1").show();
 			setTimeout(function(){
-				document.getElementById('bust1').style.display = "none";
+				$("#bust1").hide();
 		    }, 5000);
 		};
 		if (response.score2 > 21) {
-			document.getElementById('bust2').style.display = "block";
-			document.getElementById('score2').textContent = score2;
+			$("#bust2").show();
 			setTimeout(function(){
-				document.getElementById('bust2').style.display = "none";
+				$("#bust2").hide();
 		    }, 4000);
 		};
 
@@ -110,6 +103,8 @@ function updateScore() {
 
 function resetGame() {
 	$(".reset").html("Loading...");
+	$(".score1winner").hide();
+	$(".score2winner").hide();
 	$.ajax({
 	    url: "/reset",
 	    type: 'GET',
@@ -117,8 +112,6 @@ function resetGame() {
 	        console.log(res);
 	        updateScore();
 	        $(".reset").html("[RESTART GAME]");
-			$(".score1winner").hide();
-			$(".score2winner").hide();
 	    }
 	});
 };
