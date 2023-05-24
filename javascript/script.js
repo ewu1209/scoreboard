@@ -1,3 +1,5 @@
+var gameActive = true;
+
 function rgbJSON(color) {
 	var rgb = {
 		"r": 255,
@@ -56,6 +58,9 @@ function goveeAPI(color, key) {
 };
 
 function updateScore() {
+	if (!gameActive) {
+		return;
+	}
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -78,9 +83,11 @@ function updateScore() {
       	//show winners or busts if needed
 		if (response.score1 == 21) {
 			$("#score1winner").show();
+			gameActive = false;
 		};
 		if (response.score2 == 21) {
 			$("#score2winner").show();
+			gameActive = false;
 		};
 		if (response.score1 > 21) {
 			$("#bust1").show();
