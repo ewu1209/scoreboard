@@ -61,6 +61,7 @@ function updateScore() {
 	if (!gameActive) {
 		return;
 	}
+	console.log("updateScore");
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -93,7 +94,7 @@ function updateScore() {
 			$("#bust1").show();
 			setTimeout(function(){
 				$("#bust1").hide();
-		    }, 5000);
+		    }, 4000);
 		};
 		if (response.score2 > 21) {
 			$("#bust2").show();
@@ -121,6 +122,7 @@ function resetGame() {
 	        console.log(res);
 	        updateScore();
 	        $(".reset").html("[RESTART GAME]");
+        	gameActive = true;
 	    }
 	});
 };
