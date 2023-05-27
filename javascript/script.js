@@ -1,15 +1,38 @@
 var gameActive = true;
 
+function scoreOneSound() { 
+  document.getElementById("scoreOne").play(); 
+};
+
+function scoreThreeSound() { 
+  document.getElementById("scoreThree").play(); 
+
+};
+
+function scoreFiveSound() { 
+  document.getElementById("scoreFive").play(); 
+  document.getElementById("clap").play(); 
+};
+
+function bustSound() { 
+  document.getElementById("bust").play(); 
+};
+
+function gameOverSound() { 
+  document.getElementById("gameOver").play(); 
+  document.getElementById("clap").play(); 
+}; 
+
 function rgbJSON(color) {
 	var rgb = {
 		"r": 255,
 		"g": 255,
 		"b": 255	
 	};	
-	if (color == "red") {
+	if (color == "orange") {
 		rgb = {
 			"r": 255,
-			"g": 0,
+			"g": 255,
 			"b": 0	
 		};		
 	};
@@ -67,41 +90,53 @@ function updateScore() {
     if (xhr.readyState === 4 && xhr.status === 200) {
     	var response = JSON.parse(xhr.responseText);
 
-    	// See what changed
+    	// Calculate score deltas before making the update to the UI
     	var delta1 = response.score1 - $("#score1").html();
     	var delta2 = response.score2 - $("#score2").html();
-
-		// Govee logic
-    	if (delta1 > 4 || delta2 > 4) {
-    		console.log("redflash");
-			//goveeAPI("red", response.key);
-    	};
-
-    	// update doc elements
       	$("#score1").html(response.score1);
       	$("#score2").html(response.score2);
 
-      	//show winners or busts if needed
+      	// Game over scenarios
 		if (response.score1 == 21) {
+			gameOverSound();
 			$("#score1winner").show();
 			gameActive = false;
 		};
 		if (response.score2 == 21) {
+			gameOverSound();
 			$("#score2winner").show();
 			gameActive = false;
 		};
+
+		// Bust scenarios
 		if (response.score1 > 21) {
+			bustSound();
 			$("#bust1").show();
 			setTimeout(function(){
 				$("#bust1").hide();
 		    }, 4000);
 		};
 		if (response.score2 > 21) {
+			bustSound();
 			$("#bust2").show();
 			setTimeout(function(){
 				$("#bust2").hide();
 		    }, 4000);
 		};
+
+		// Scoring scenarios
+    	if (delta1 == 1 || delta2 == 1) {
+    		scoreOneSound();
+			//goveeAPI("orange", response.key);
+    	};
+    	if (delta1 == 3 || delta2 == 3) {
+    		scoreThreeSound();
+			//goveeAPI("orange", response.key);
+    	};
+    	if (delta1 > 4 || delta2 > 4) {
+    		scoreFiveSound();
+			//goveeAPI("orange", response.key);
+    	};
 
     };
   };
@@ -130,7 +165,7 @@ function resetGame() {
 $(document).ready(function() {
 
 	//Initiate the updater 
-	setInterval(updateScore, 500);
+	setInterval(updateScore, 250);
 
 	//Reset game event listener
 	$(".reset").click(function(){resetGame();});
