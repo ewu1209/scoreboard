@@ -1,4 +1,17 @@
 var gameActive = true;
+var soundActivated = false;
+
+function activateSound() {
+	if (soundActivated == false) {
+	  document.getElementById("scoreOne").play(); 
+	  document.getElementById("scoreThree").play(); 
+	  document.getElementById("scoreFive").play(); 
+	  document.getElementById("clap").play(); 
+	  document.getElementById("bust").play(); 
+	  document.getElementById("gameOver").play(); 
+	  soundActivated = true;
+	}
+};
 
 function scoreOneSound() { 
   document.getElementById("scoreOne").play(); 
@@ -20,7 +33,6 @@ function bustSound() {
 
 function gameOverSound() { 
   document.getElementById("gameOver").play(); 
-  document.getElementById("clap").play(); 
 }; 
 
 function rgbJSON(color) {
@@ -145,8 +157,9 @@ function updateScore() {
 };
 
 function resetGame() {
-  	$("#score1").html("0");
-  	$("#score2").html("0");
+	activateSound();
+	$("#score1").html("0");
+	$("#score2").html("0");
 	$(".reset").html("Loading...");
 	$("#score1winner").hide();
 	$("#score2winner").hide();
