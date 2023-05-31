@@ -14,24 +14,30 @@ function activateSound() {
 };
 
 function scoreOneSound() { 
+  document.getElementById("scoreOne").load(); 
   document.getElementById("scoreOne").play(); 
 };
 
 function scoreThreeSound() { 
+  document.getElementById("scoreThree").load(); 
   document.getElementById("scoreThree").play(); 
 
 };
 
 function scoreFiveSound() { 
+  document.getElementById("scoreFive").load(); 
   document.getElementById("scoreFive").play(); 
+  document.getElementById("clap").load(); 
   document.getElementById("clap").play(); 
 };
 
 function bustSound() { 
+  document.getElementById("bust").load(); 
   document.getElementById("bust").play(); 
 };
 
 function gameOverSound() { 
+  document.getElementById("gameOver").load(); 
   document.getElementById("gameOver").play(); 
 }; 
 
