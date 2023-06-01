@@ -147,15 +147,15 @@ function updateScore() {
 
 		// Scoring scenarios
     	if (delta1 == 1 || delta2 == 1) {
-				//goveeAPI(response.key);
+				goveeAPI(response.key);
     		scoreOneSound();
     	};
     	if (delta1 == 3 || delta2 == 3) {
 				goveeAPI(response.key);
     		scoreThreeSound();
     	};
-    	if ((delta1 > 4 && response.score1 < 21) || (delta2 > response.score2 < 21)) {
-				//goveeAPI(response.key);
+    	if ((delta1 > 4 && response.score1 < 21) || (delta2 > 4 && response.score2 < 21)) {
+				goveeAPI(response.key);
     		scoreFiveSound();
     	};
 
