@@ -54,6 +54,13 @@ function rgbJSON(color) {
 			"b": 0	
 		};		
 	};
+	if (color == "red") {
+		rgb = {
+			"r": 255,
+			"g": 0,
+			"b": 0	
+		};		
+	};
 	if (color == "white") {
 		rgb = {
 			"r": 255,
@@ -70,8 +77,8 @@ function goveeAPI(color, key) {
 	  url: "https://developer-api.govee.com/v1/devices/control",
 	  type: "PUT",
 	  data: JSON.stringify({
-		"device": "EC:66:D4:AD:FC:7B:9F:88",
-		"model": "H61A0",
+		"device": "7B:36:D4:AD:FC:78:32:5A",
+		"model": "H61A2",
 		"cmd": { 
 		  "name": "color", 
 		  "value": { 
@@ -91,9 +98,9 @@ function goveeAPI(color, key) {
 	    console.log("Request failed:", error);
 	  }
 	});
-	if (color !== "white") {
+	if (color !== "orange") {
 		setTimeout(function(){
-			goveeAPI("white", key);
+			goveeAPI("orange", key);
 	    }, 1000);
 	};
 };
@@ -145,15 +152,15 @@ function updateScore() {
 		// Scoring scenarios
     	if (delta1 == 1 || delta2 == 1) {
     		scoreOneSound();
-			//goveeAPI("orange", response.key);
+				goveeAPI("white", response.key);
     	};
     	if (delta1 == 3 || delta2 == 3) {
     		scoreThreeSound();
-			//goveeAPI("orange", response.key);
+				goveeAPI("white", response.key);
     	};
     	if (delta1 > 4 || delta2 > 4) {
     		scoreFiveSound();
-			//goveeAPI("orange", response.key);
+				goveeAPI("red", response.key);
     	};
 
     };
