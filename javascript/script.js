@@ -1,5 +1,6 @@
 var gameActive = true;
 var soundActivated = false;
+var gameColor = "orange";
 
 function activateSound() {
 	if (soundActivated == false) {
@@ -49,30 +50,28 @@ function rgbJSON(color) {
 	};	
 	if (color == "orange") {
 		rgb = {
-			"r": 255,
-			"g": 165,
-			"b": 0	
+			"r": 239,
+			"g": 133,
+			"b": 51	
 		};		
 	};
-	if (color == "red") {
+	if (color == "purple") {
 		rgb = {
-			"r": 255,
-			"g": 0,
-			"b": 0	
-		};		
-	};
-	if (color == "white") {
-		rgb = {
-			"r": 255,
-			"g": 255,
-			"b": 255	
+			"r": 126,
+			"g": 44,
+			"b": 245	
 		};		
 	};
 	return rgb;
 };
 
-function goveeAPI(color, key) {
-	color = rgbJSON(color);
+function goveeAPI(key) {
+	if (gameColor == "orange") {
+		gameColor = "purple";
+	}
+	else {
+		gameColor = "orange";
+	};
 	$.ajax({
 	  url: "https://developer-api.govee.com/v1/devices/control",
 	  type: "PUT",
@@ -82,9 +81,9 @@ function goveeAPI(color, key) {
 		"cmd": { 
 		  "name": "color", 
 		  "value": { 
-		  	"r": color.r, 
-		  	"g": color.g, 
-		  	"b": color.b}
+		  	"r": rgbJSON(color).r, 
+		  	"g": rgbJSON(color).g, 
+		  	"b": rgbJSON(color).b}
 			}
 		}),
 	  contentType: "application/json",
@@ -98,11 +97,6 @@ function goveeAPI(color, key) {
 	    console.log("Request failed:", error);
 	  }
 	});
-	if (color !== "orange") {
-		setTimeout(function(){
-			goveeAPI("orange", key);
-	    }, 200);
-	};
 };
 
 function updateScore() {
@@ -142,6 +136,7 @@ function updateScore() {
 		    }, 4000);
 		};
 		if (response.score2 > 21) {
+			goveeAPI(response.key);
 			bustSound();
 			$("#bust2").show();
 			setTimeout(function(){
@@ -151,15 +146,15 @@ function updateScore() {
 
 		// Scoring scenarios
     	if (delta1 == 1 || delta2 == 1) {
-				goveeAPI("white", response.key);
+				goveeAPI(response.key);
     		scoreOneSound();
     	};
     	if (delta1 == 3 || delta2 == 3) {
-				goveeAPI("white", response.key);
+				goveeAPI(response.key);
     		scoreThreeSound();
     	};
-    	if (delta1 > 4 || delta2 > 4) {
-				goveeAPI("red", response.key);
+    	if ((delta1 > 4 && response.score1 < 21) || (delta2 > response.score2 < 21)) {
+				goveeAPI(response.key);
     		scoreFiveSound();
     	};
 
