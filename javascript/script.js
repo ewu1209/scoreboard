@@ -50,9 +50,9 @@ function rgbJSON(color) {
 	};	
 	if (color == "orange") {
 		rgb = {
-			"r": 239,
-			"g": 133,
-			"b": 51	
+			"r": 251,
+			"g": 118,
+			"b": 38	
 		};		
 	};
 	if (color == "purple") {
