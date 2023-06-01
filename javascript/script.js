@@ -129,6 +129,7 @@ function updateScore() {
 
 		// Bust scenarios
 		if (response.score1 > 21) {
+			//goveeAPI(response.key);
 			bustSound();
 			$("#bust1").show();
 			setTimeout(function(){
@@ -136,7 +137,7 @@ function updateScore() {
 		    }, 4000);
 		};
 		if (response.score2 > 21) {
-			goveeAPI(response.key);
+			//goveeAPI(response.key);
 			bustSound();
 			$("#bust2").show();
 			setTimeout(function(){
@@ -146,7 +147,7 @@ function updateScore() {
 
 		// Scoring scenarios
     	if (delta1 == 1 || delta2 == 1) {
-				goveeAPI(response.key);
+				//goveeAPI(response.key);
     		scoreOneSound();
     	};
     	if (delta1 == 3 || delta2 == 3) {
@@ -154,7 +155,7 @@ function updateScore() {
     		scoreThreeSound();
     	};
     	if ((delta1 > 4 && response.score1 < 21) || (delta2 > response.score2 < 21)) {
-				goveeAPI(response.key);
+				//goveeAPI(response.key);
     		scoreFiveSound();
     	};
 
