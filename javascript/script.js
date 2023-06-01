@@ -50,7 +50,7 @@ function rgbJSON(color) {
 	if (color == "orange") {
 		rgb = {
 			"r": 255,
-			"g": 255,
+			"g": 165,
 			"b": 0	
 		};		
 	};
@@ -101,7 +101,7 @@ function goveeAPI(color, key) {
 	if (color !== "orange") {
 		setTimeout(function(){
 			goveeAPI("orange", key);
-	    }, 1000);
+	    }, 200);
 	};
 };
 
@@ -151,16 +151,16 @@ function updateScore() {
 
 		// Scoring scenarios
     	if (delta1 == 1 || delta2 == 1) {
-    		scoreOneSound();
 				goveeAPI("white", response.key);
+    		scoreOneSound();
     	};
     	if (delta1 == 3 || delta2 == 3) {
-    		scoreThreeSound();
 				goveeAPI("white", response.key);
+    		scoreThreeSound();
     	};
     	if (delta1 > 4 || delta2 > 4) {
-    		scoreFiveSound();
 				goveeAPI("red", response.key);
+    		scoreFiveSound();
     	};
 
     };
