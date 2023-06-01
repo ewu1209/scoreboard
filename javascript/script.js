@@ -81,9 +81,9 @@ function goveeAPI(key) {
 		"cmd": { 
 		  "name": "color", 
 		  "value": { 
-		  	"r": rgbJSON(color).r, 
-		  	"g": rgbJSON(color).g, 
-		  	"b": rgbJSON(color).b}
+		  	"r": rgbJSON(gameColor).r, 
+		  	"g": rgbJSON(gameColor).g, 
+		  	"b": rgbJSON(gameColor).b}
 			}
 		}),
 	  contentType: "application/json",
